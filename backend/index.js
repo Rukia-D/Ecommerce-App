@@ -5,16 +5,14 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const dotenv = require("dotenv").config();
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors());
 
 // Database Connection With MongoDB
-mongoose.connect("--------- paste your mongodb link ----------/e-commerce");
-
-// paste your mongoDB Connection string above with password
-// password should not contain '@' special character
+mongoose.connect(process.env.MONGO_URI);
 
 
 //Image Storage Engine 
